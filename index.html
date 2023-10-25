@@ -2,64 +2,131 @@
 <html lang="es">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introducción al DOM</title>
-    <link rel="stylesheet" href="dom.css" />
-    <link id="theme" rel="stylesheet" href="light.css" />
-
-    
-     
+    <title>Formularios Lokotes</title>
+   <!-- <link rel="stylesheet" href="./css/dom.css" />--> 
+   <link rel="stylesheet" href="./css/dom.css" />
+   <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link id="theme" rel="stylesheet" href="./css/light.css" />
     
   </head>
   <body>
     
-  <h2>Eventos</h2>
-  <button id="btn-theme">💪</button>
-  <div>
-  <p>Elige un tema para el documento:</p>
-  <form>
-    <input
-      name="theme"
-      id="radio-light"
-      type="radio"
-      data-theme="light.css"
-      data-name="Claro"
-      checked
-    />
-    <label for="radio-light">Tema claro</label>
-    <br />
-    <input
-      name="theme"
-      id="radio-dark"
-      type="radio"
-      data-theme="dark.css"
-      data-name="Obscuro"
-    />
-    <label for="radio-dark">Tema obscuro</label>
-    <br />
-    <input
-      name="theme"
-      id="radio-sky"
-      type="radio"
-      data-theme="sky.css"
-      data-name="Cielo"
-    />
-    <label for="radio-sky">Tema cielo</label>
-    <br />
-    <input
-      name="theme"
-      id="radio-sun"
-      type="radio"
-      data-theme="sun.css"
-      data-name="Soleado"
-    />
-    <label for="radio-sun">Tema soleado</label>
-    <br />
-    <footer>
-      <p>
-        <small>Sitio hecho por mí.</small>
-      </p>
-    </footer>
-    <script src="cosas.js"></script>
+  <h1>Formulakotes</h1>
+  <div class="container">
+    <section class="row">
+      <article class="col-12 col-lg-6 offset-lg-3">
+        <form id="contact-form" class="border p-5 bg-body-tertiary rounded">
+          <div class="my-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              class="form-control"
+              placeholder="pe. Juan"
+              title="Este campo sólo acepta letras y espacios en blanco"
+              pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+              required
+            />
+          </div>
+          <div>
+            <label for="pwd">Contraseña:</label><br>
+            <input type="password" id="pwd" name="pwd" class="form-control" title="Necesita Contraseña" required><br><br>
+          </div>
+          <div>
+            <label for="genre" class="form-label">¿Cuál es tu género?</label>
+               <select id="genre" name="genre" size="3" class="form-control" title="Género requerido"  required >
+                  <option value="TipicoMachito">Hombre</option>
+                  <option value="Women">Mujer</option>
+                  <option value="XD" >Otro</option>
+                  <option value="Basado">Helicoptero apache ah 64</option>
+                  <option value="Feedy">Fredy Fazbear</option>
+               </select>
+            
+          </div>
+          <div class="my-3">
+            <label for="correo" class="form-label">Correo:</label>
+            <input
+              type="email"
+              name="correo"
+              id="correo"
+              class="form-control"
+              placeholder="pe. correo@dominio.com"
+              title="Formato de correo inválido"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+              required
+            />
+          </div>
+          
+          <div class="my-3">
+            <label class="form-label" for="asunto">Asunto:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="asunto"
+              id="asunto"
+              placeholder="Asunto a tratar"
+              title="El Asunto es requerido"
+              required
+            />
+          </div>
+          <label for="favcolor">Elige tu color favorito:</label>
+             <input type="color" id="favcolor" name="favcolor" title="Vamos debes tener un color preferido al menos" required>
+          <div class="my-3">
+            <label for="comentaries" class="form-label">Comentarios</label>
+            <textarea
+              name="comentaries"
+              id="comentaries"
+              placeholder="Deja tus comentarios"
+              title="Los comentarios son requeridos"
+              rows="5"
+              class="form-control"
+              required
+            ></textarea>
+            <div class="my-3" >
+              <input type="checkbox"  id="vehicle1" name="vehicle1" value="Bike" title="Debes de aceptar los términos y condiciones" required>
+              <label for="vehicle1" > Aceptas los términos y condiciones?</label><br>
+              <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"title="Di que si" required>
+              <label for="vehicle2" > Me entregas tu alma? 🤭🤭🤭</label><br>
+            </div>
+          </div>
+          <div class="my-3">
+            <input type="submit" class="btn btn-primary" />
+          </div>
+          <div class="my-3 text-center">
+            <div
+              id="loader"
+              class="spinner-border text-primary d-none"
+              role="status"
+            >
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div
+              id="form-message"
+              class="alert alert-primary d-none"
+              role="alert"
+            >
+              El formulario se ha enviado
+            </div>
+          </div>
+        </form>
+      </article>
+    </section>
+  </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+   <!-- -->
+    <script src="./js/forms.js" type="module"></script>
+    
   </header>
   </body>
 </html>
